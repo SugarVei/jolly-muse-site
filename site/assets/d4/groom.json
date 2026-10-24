@@ -1,0 +1,1212 @@
+{
+  "revision": "d4",
+  "sourceSHA256": "ddf4f22b44778400b5a9fe020167954f222f434f8ff8019489eea642d1c1b59c",
+  "coordinateSpace": "Blender XYZ; lengths multiplied by 10; web converts to X,Z,-Y",
+  "curveBuffer": "native-curves.bin",
+  "rootBuffer": "native-roots.bin",
+  "napBuffer": "native-nap.bin",
+  "templates": [
+    {
+      "name": "Fiber_Bundle_000",
+      "offset": 0,
+      "curves": 221,
+      "pointsPerCurve": 40,
+      "family": 0
+    },
+    {
+      "name": "Fiber_Bundle_001",
+      "offset": 35360,
+      "curves": 220,
+      "pointsPerCurve": 40,
+      "family": 1
+    },
+    {
+      "name": "Fiber_Bundle_002",
+      "offset": 70560,
+      "curves": 220,
+      "pointsPerCurve": 40,
+      "family": 2
+    },
+    {
+      "name": "Fiber_Bundle_003",
+      "offset": 105760,
+      "curves": 220,
+      "pointsPerCurve": 40,
+      "family": 3
+    },
+    {
+      "name": "Fiber_Bundle_004",
+      "offset": 140960,
+      "curves": 220,
+      "pointsPerCurve": 40,
+      "family": 4
+    },
+    {
+      "name": "Fiber_Bundle_005",
+      "offset": 176160,
+      "curves": 220,
+      "pointsPerCurve": 40,
+      "family": 5
+    },
+    {
+      "name": "Fiber_Bundle_006",
+      "offset": 211360,
+      "curves": 220,
+      "pointsPerCurve": 40,
+      "family": 6
+    },
+    {
+      "name": "Fiber_Bundle_007",
+      "offset": 246560,
+      "curves": 220,
+      "pointsPerCurve": 40,
+      "family": 7
+    },
+    {
+      "name": "Fiber_Bundle_008",
+      "offset": 281760,
+      "curves": 220,
+      "pointsPerCurve": 40,
+      "family": 0
+    },
+    {
+      "name": "Fiber_Bundle_009",
+      "offset": 316960,
+      "curves": 220,
+      "pointsPerCurve": 40,
+      "family": 1
+    },
+    {
+      "name": "Fiber_Bundle_010",
+      "offset": 352160,
+      "curves": 220,
+      "pointsPerCurve": 40,
+      "family": 2
+    },
+    {
+      "name": "Fiber_Bundle_011",
+      "offset": 387360,
+      "curves": 220,
+      "pointsPerCurve": 40,
+      "family": 3
+    },
+    {
+      "name": "Fiber_Bundle_012",
+      "offset": 422560,
+      "curves": 220,
+      "pointsPerCurve": 40,
+      "family": 4
+    },
+    {
+      "name": "Fiber_Bundle_013",
+      "offset": 457760,
+      "curves": 220,
+      "pointsPerCurve": 40,
+      "family": 5
+    },
+    {
+      "name": "Fiber_Bundle_014",
+      "offset": 492960,
+      "curves": 220,
+      "pointsPerCurve": 40,
+      "family": 6
+    },
+    {
+      "name": "Fiber_Bundle_015",
+      "offset": 528160,
+      "curves": 220,
+      "pointsPerCurve": 40,
+      "family": 7
+    },
+    {
+      "name": "Fiber_Bundle_016",
+      "offset": 563360,
+      "curves": 220,
+      "pointsPerCurve": 40,
+      "family": 0
+    },
+    {
+      "name": "Fiber_Bundle_017",
+      "offset": 598560,
+      "curves": 220,
+      "pointsPerCurve": 40,
+      "family": 1
+    },
+    {
+      "name": "Fiber_Bundle_018",
+      "offset": 633760,
+      "curves": 220,
+      "pointsPerCurve": 40,
+      "family": 2
+    },
+    {
+      "name": "Fiber_Bundle_019",
+      "offset": 668960,
+      "curves": 220,
+      "pointsPerCurve": 40,
+      "family": 3
+    },
+    {
+      "name": "Fiber_Bundle_020",
+      "offset": 704160,
+      "curves": 220,
+      "pointsPerCurve": 40,
+      "family": 4
+    },
+    {
+      "name": "Fiber_Bundle_021",
+      "offset": 739360,
+      "curves": 220,
+      "pointsPerCurve": 40,
+      "family": 5
+    },
+    {
+      "name": "Fiber_Bundle_022",
+      "offset": 774560,
+      "curves": 220,
+      "pointsPerCurve": 40,
+      "family": 6
+    },
+    {
+      "name": "Fiber_Bundle_023",
+      "offset": 809760,
+      "curves": 220,
+      "pointsPerCurve": 40,
+      "family": 7
+    },
+    {
+      "name": "Fiber_Bundle_024",
+      "offset": 844960,
+      "curves": 221,
+      "pointsPerCurve": 40,
+      "family": 0
+    },
+    {
+      "name": "Fiber_Bundle_025",
+      "offset": 880320,
+      "curves": 220,
+      "pointsPerCurve": 40,
+      "family": 1
+    },
+    {
+      "name": "Fiber_Bundle_026",
+      "offset": 915520,
+      "curves": 220,
+      "pointsPerCurve": 40,
+      "family": 2
+    },
+    {
+      "name": "Fiber_Bundle_027",
+      "offset": 950720,
+      "curves": 220,
+      "pointsPerCurve": 40,
+      "family": 3
+    },
+    {
+      "name": "Fiber_Bundle_028",
+      "offset": 985920,
+      "curves": 220,
+      "pointsPerCurve": 40,
+      "family": 4
+    },
+    {
+      "name": "Fiber_Bundle_029",
+      "offset": 1021120,
+      "curves": 220,
+      "pointsPerCurve": 40,
+      "family": 5
+    },
+    {
+      "name": "Fiber_Bundle_030",
+      "offset": 1056320,
+      "curves": 220,
+      "pointsPerCurve": 40,
+      "family": 6
+    },
+    {
+      "name": "Fiber_Bundle_031",
+      "offset": 1091520,
+      "curves": 220,
+      "pointsPerCurve": 40,
+      "family": 7
+    },
+    {
+      "name": "Fiber_Bundle_032",
+      "offset": 1126720,
+      "curves": 220,
+      "pointsPerCurve": 40,
+      "family": 0
+    },
+    {
+      "name": "Fiber_Bundle_033",
+      "offset": 1161920,
+      "curves": 220,
+      "pointsPerCurve": 40,
+      "family": 1
+    },
+    {
+      "name": "Fiber_Bundle_034",
+      "offset": 1197120,
+      "curves": 220,
+      "pointsPerCurve": 40,
+      "family": 2
+    },
+    {
+      "name": "Fiber_Bundle_035",
+      "offset": 1232320,
+      "curves": 220,
+      "pointsPerCurve": 40,
+      "family": 3
+    },
+    {
+      "name": "Fiber_Bundle_036",
+      "offset": 1267520,
+      "curves": 220,
+      "pointsPerCurve": 40,
+      "family": 4
+    },
+    {
+      "name": "Fiber_Bundle_037",
+      "offset": 1302720,
+      "curves": 220,
+      "pointsPerCurve": 40,
+      "family": 5
+    },
+    {
+      "name": "Fiber_Bundle_038",
+      "offset": 1337920,
+      "curves": 220,
+      "pointsPerCurve": 40,
+      "family": 6
+    },
+    {
+      "name": "Fiber_Bundle_039",
+      "offset": 1373120,
+      "curves": 220,
+      "pointsPerCurve": 40,
+      "family": 7
+    },
+    {
+      "name": "Fiber_Bundle_040",
+      "offset": 1408320,
+      "curves": 220,
+      "pointsPerCurve": 40,
+      "family": 0
+    },
+    {
+      "name": "Fiber_Bundle_041",
+      "offset": 1443520,
+      "curves": 220,
+      "pointsPerCurve": 40,
+      "family": 1
+    },
+    {
+      "name": "Fiber_Bundle_042",
+      "offset": 1478720,
+      "curves": 220,
+      "pointsPerCurve": 40,
+      "family": 2
+    },
+    {
+      "name": "Fiber_Bundle_043",
+      "offset": 1513920,
+      "curves": 220,
+      "pointsPerCurve": 40,
+      "family": 3
+    },
+    {
+      "name": "Fiber_Bundle_044",
+      "offset": 1549120,
+      "curves": 220,
+      "pointsPerCurve": 40,
+      "family": 4
+    },
+    {
+      "name": "Fiber_Bundle_045",
+      "offset": 1584320,
+      "curves": 220,
+      "pointsPerCurve": 40,
+      "family": 5
+    },
+    {
+      "name": "Fiber_Bundle_046",
+      "offset": 1619520,
+      "curves": 220,
+      "pointsPerCurve": 40,
+      "family": 6
+    },
+    {
+      "name": "Fiber_Bundle_047",
+      "offset": 1654720,
+      "curves": 220,
+      "pointsPerCurve": 40,
+      "family": 7
+    },
+    {
+      "name": "Fiber_Bundle_048",
+      "offset": 1689920,
+      "curves": 221,
+      "pointsPerCurve": 40,
+      "family": 0
+    },
+    {
+      "name": "Fiber_Bundle_049",
+      "offset": 1725280,
+      "curves": 220,
+      "pointsPerCurve": 40,
+      "family": 1
+    },
+    {
+      "name": "Fiber_Bundle_050",
+      "offset": 1760480,
+      "curves": 220,
+      "pointsPerCurve": 40,
+      "family": 2
+    },
+    {
+      "name": "Fiber_Bundle_051",
+      "offset": 1795680,
+      "curves": 220,
+      "pointsPerCurve": 40,
+      "family": 3
+    },
+    {
+      "name": "Fiber_Bundle_052",
+      "offset": 1830880,
+      "curves": 220,
+      "pointsPerCurve": 40,
+      "family": 4
+    },
+    {
+      "name": "Fiber_Bundle_053",
+      "offset": 1866080,
+      "curves": 220,
+      "pointsPerCurve": 40,
+      "family": 5
+    },
+    {
+      "name": "Fiber_Bundle_054",
+      "offset": 1901280,
+      "curves": 220,
+      "pointsPerCurve": 40,
+      "family": 6
+    },
+    {
+      "name": "Fiber_Bundle_055",
+      "offset": 1936480,
+      "curves": 220,
+      "pointsPerCurve": 40,
+      "family": 7
+    },
+    {
+      "name": "Fiber_Bundle_056",
+      "offset": 1971680,
+      "curves": 220,
+      "pointsPerCurve": 40,
+      "family": 0
+    },
+    {
+      "name": "Fiber_Bundle_057",
+      "offset": 2006880,
+      "curves": 220,
+      "pointsPerCurve": 40,
+      "family": 1
+    },
+    {
+      "name": "Fiber_Bundle_058",
+      "offset": 2042080,
+      "curves": 220,
+      "pointsPerCurve": 40,
+      "family": 2
+    },
+    {
+      "name": "Fiber_Bundle_059",
+      "offset": 2077280,
+      "curves": 220,
+      "pointsPerCurve": 40,
+      "family": 3
+    },
+    {
+      "name": "Fiber_Bundle_060",
+      "offset": 2112480,
+      "curves": 220,
+      "pointsPerCurve": 40,
+      "family": 4
+    },
+    {
+      "name": "Fiber_Bundle_061",
+      "offset": 2147680,
+      "curves": 220,
+      "pointsPerCurve": 40,
+      "family": 5
+    },
+    {
+      "name": "Fiber_Bundle_062",
+      "offset": 2182880,
+      "curves": 220,
+      "pointsPerCurve": 40,
+      "family": 6
+    },
+    {
+      "name": "Fiber_Bundle_063",
+      "offset": 2218080,
+      "curves": 220,
+      "pointsPerCurve": 40,
+      "family": 7
+    },
+    {
+      "name": "Fiber_Bundle_064",
+      "offset": 2253280,
+      "curves": 220,
+      "pointsPerCurve": 40,
+      "family": 0
+    },
+    {
+      "name": "Fiber_Bundle_065",
+      "offset": 2288480,
+      "curves": 220,
+      "pointsPerCurve": 40,
+      "family": 1
+    },
+    {
+      "name": "Fiber_Bundle_066",
+      "offset": 2323680,
+      "curves": 220,
+      "pointsPerCurve": 40,
+      "family": 2
+    },
+    {
+      "name": "Fiber_Bundle_067",
+      "offset": 2358880,
+      "curves": 220,
+      "pointsPerCurve": 40,
+      "family": 3
+    },
+    {
+      "name": "Fiber_Bundle_068",
+      "offset": 2394080,
+      "curves": 220,
+      "pointsPerCurve": 40,
+      "family": 4
+    },
+    {
+      "name": "Fiber_Bundle_069",
+      "offset": 2429280,
+      "curves": 220,
+      "pointsPerCurve": 40,
+      "family": 5
+    },
+    {
+      "name": "Fiber_Bundle_070",
+      "offset": 2464480,
+      "curves": 220,
+      "pointsPerCurve": 40,
+      "family": 6
+    },
+    {
+      "name": "Fiber_Bundle_071",
+      "offset": 2499680,
+      "curves": 220,
+      "pointsPerCurve": 40,
+      "family": 7
+    },
+    {
+      "name": "Fiber_Bundle_072",
+      "offset": 2534880,
+      "curves": 221,
+      "pointsPerCurve": 40,
+      "family": 0
+    },
+    {
+      "name": "Fiber_Bundle_073",
+      "offset": 2570240,
+      "curves": 220,
+      "pointsPerCurve": 40,
+      "family": 1
+    },
+    {
+      "name": "Fiber_Bundle_074",
+      "offset": 2605440,
+      "curves": 220,
+      "pointsPerCurve": 40,
+      "family": 2
+    },
+    {
+      "name": "Fiber_Bundle_075",
+      "offset": 2640640,
+      "curves": 220,
+      "pointsPerCurve": 40,
+      "family": 3
+    },
+    {
+      "name": "Fiber_Bundle_076",
+      "offset": 2675840,
+      "curves": 220,
+      "pointsPerCurve": 40,
+      "family": 4
+    },
+    {
+      "name": "Fiber_Bundle_077",
+      "offset": 2711040,
+      "curves": 220,
+      "pointsPerCurve": 40,
+      "family": 5
+    },
+    {
+      "name": "Fiber_Bundle_078",
+      "offset": 2746240,
+      "curves": 220,
+      "pointsPerCurve": 40,
+      "family": 6
+    },
+    {
+      "name": "Fiber_Bundle_079",
+      "offset": 2781440,
+      "curves": 220,
+      "pointsPerCurve": 40,
+      "family": 7
+    },
+    {
+      "name": "Fiber_Bundle_080",
+      "offset": 2816640,
+      "curves": 220,
+      "pointsPerCurve": 40,
+      "family": 0
+    },
+    {
+      "name": "Fiber_Bundle_081",
+      "offset": 2851840,
+      "curves": 220,
+      "pointsPerCurve": 40,
+      "family": 1
+    },
+    {
+      "name": "Fiber_Bundle_082",
+      "offset": 2887040,
+      "curves": 220,
+      "pointsPerCurve": 40,
+      "family": 2
+    },
+    {
+      "name": "Fiber_Bundle_083",
+      "offset": 2922240,
+      "curves": 220,
+      "pointsPerCurve": 40,
+      "family": 3
+    },
+    {
+      "name": "Fiber_Bundle_084",
+      "offset": 2957440,
+      "curves": 220,
+      "pointsPerCurve": 40,
+      "family": 4
+    },
+    {
+      "name": "Fiber_Bundle_085",
+      "offset": 2992640,
+      "curves": 220,
+      "pointsPerCurve": 40,
+      "family": 5
+    },
+    {
+      "name": "Fiber_Bundle_086",
+      "offset": 3027840,
+      "curves": 220,
+      "pointsPerCurve": 40,
+      "family": 6
+    },
+    {
+      "name": "Fiber_Bundle_087",
+      "offset": 3063040,
+      "curves": 220,
+      "pointsPerCurve": 40,
+      "family": 7
+    },
+    {
+      "name": "Fiber_Bundle_088",
+      "offset": 3098240,
+      "curves": 220,
+      "pointsPerCurve": 40,
+      "family": 0
+    },
+    {
+      "name": "Fiber_Bundle_089",
+      "offset": 3133440,
+      "curves": 220,
+      "pointsPerCurve": 40,
+      "family": 1
+    },
+    {
+      "name": "Fiber_Bundle_090",
+      "offset": 3168640,
+      "curves": 220,
+      "pointsPerCurve": 40,
+      "family": 2
+    },
+    {
+      "name": "Fiber_Bundle_091",
+      "offset": 3203840,
+      "curves": 220,
+      "pointsPerCurve": 40,
+      "family": 3
+    },
+    {
+      "name": "Fiber_Bundle_092",
+      "offset": 3239040,
+      "curves": 220,
+      "pointsPerCurve": 40,
+      "family": 4
+    },
+    {
+      "name": "Fiber_Bundle_093",
+      "offset": 3274240,
+      "curves": 220,
+      "pointsPerCurve": 40,
+      "family": 5
+    },
+    {
+      "name": "Fiber_Bundle_094",
+      "offset": 3309440,
+      "curves": 220,
+      "pointsPerCurve": 40,
+      "family": 6
+    },
+    {
+      "name": "Fiber_Bundle_095",
+      "offset": 3344640,
+      "curves": 220,
+      "pointsPerCurve": 40,
+      "family": 7
+    },
+    {
+      "name": "Fiber_Bundle_096",
+      "offset": 3379840,
+      "curves": 221,
+      "pointsPerCurve": 40,
+      "family": 0
+    },
+    {
+      "name": "Fiber_Bundle_097",
+      "offset": 3415200,
+      "curves": 220,
+      "pointsPerCurve": 40,
+      "family": 1
+    },
+    {
+      "name": "Fiber_Bundle_098",
+      "offset": 3450400,
+      "curves": 220,
+      "pointsPerCurve": 40,
+      "family": 2
+    },
+    {
+      "name": "Fiber_Bundle_099",
+      "offset": 3485600,
+      "curves": 220,
+      "pointsPerCurve": 40,
+      "family": 3
+    },
+    {
+      "name": "Fiber_Bundle_100",
+      "offset": 3520800,
+      "curves": 220,
+      "pointsPerCurve": 40,
+      "family": 4
+    },
+    {
+      "name": "Fiber_Bundle_101",
+      "offset": 3556000,
+      "curves": 220,
+      "pointsPerCurve": 40,
+      "family": 5
+    },
+    {
+      "name": "Fiber_Bundle_102",
+      "offset": 3591200,
+      "curves": 220,
+      "pointsPerCurve": 40,
+      "family": 6
+    },
+    {
+      "name": "Fiber_Bundle_103",
+      "offset": 3626400,
+      "curves": 220,
+      "pointsPerCurve": 40,
+      "family": 7
+    },
+    {
+      "name": "Fiber_Bundle_104",
+      "offset": 3661600,
+      "curves": 220,
+      "pointsPerCurve": 40,
+      "family": 0
+    },
+    {
+      "name": "Fiber_Bundle_105",
+      "offset": 3696800,
+      "curves": 220,
+      "pointsPerCurve": 40,
+      "family": 1
+    },
+    {
+      "name": "Fiber_Bundle_106",
+      "offset": 3732000,
+      "curves": 220,
+      "pointsPerCurve": 40,
+      "family": 2
+    },
+    {
+      "name": "Fiber_Bundle_107",
+      "offset": 3767200,
+      "curves": 220,
+      "pointsPerCurve": 40,
+      "family": 3
+    },
+    {
+      "name": "Fiber_Bundle_108",
+      "offset": 3802400,
+      "curves": 220,
+      "pointsPerCurve": 40,
+      "family": 4
+    },
+    {
+      "name": "Fiber_Bundle_109",
+      "offset": 3837600,
+      "curves": 220,
+      "pointsPerCurve": 40,
+      "family": 5
+    },
+    {
+      "name": "Fiber_Bundle_110",
+      "offset": 3872800,
+      "curves": 220,
+      "pointsPerCurve": 40,
+      "family": 6
+    },
+    {
+      "name": "Fiber_Bundle_111",
+      "offset": 3908000,
+      "curves": 220,
+      "pointsPerCurve": 40,
+      "family": 7
+    },
+    {
+      "name": "Fiber_Bundle_112",
+      "offset": 3943200,
+      "curves": 220,
+      "pointsPerCurve": 40,
+      "family": 0
+    },
+    {
+      "name": "Fiber_Bundle_113",
+      "offset": 3978400,
+      "curves": 220,
+      "pointsPerCurve": 40,
+      "family": 1
+    },
+    {
+      "name": "Fiber_Bundle_114",
+      "offset": 4013600,
+      "curves": 220,
+      "pointsPerCurve": 40,
+      "family": 2
+    },
+    {
+      "name": "Fiber_Bundle_115",
+      "offset": 4048800,
+      "curves": 220,
+      "pointsPerCurve": 40,
+      "family": 3
+    },
+    {
+      "name": "Fiber_Bundle_116",
+      "offset": 4084000,
+      "curves": 220,
+      "pointsPerCurve": 40,
+      "family": 4
+    },
+    {
+      "name": "Fiber_Bundle_117",
+      "offset": 4119200,
+      "curves": 220,
+      "pointsPerCurve": 40,
+      "family": 5
+    },
+    {
+      "name": "Fiber_Bundle_118",
+      "offset": 4154400,
+      "curves": 220,
+      "pointsPerCurve": 40,
+      "family": 6
+    },
+    {
+      "name": "Fiber_Bundle_119",
+      "offset": 4189600,
+      "curves": 220,
+      "pointsPerCurve": 40,
+      "family": 7
+    },
+    {
+      "name": "Fiber_Bundle_120",
+      "offset": 4224800,
+      "curves": 221,
+      "pointsPerCurve": 40,
+      "family": 0
+    },
+    {
+      "name": "Fiber_Bundle_121",
+      "offset": 4260160,
+      "curves": 220,
+      "pointsPerCurve": 40,
+      "family": 1
+    },
+    {
+      "name": "Fiber_Bundle_122",
+      "offset": 4295360,
+      "curves": 220,
+      "pointsPerCurve": 40,
+      "family": 2
+    },
+    {
+      "name": "Fiber_Bundle_123",
+      "offset": 4330560,
+      "curves": 220,
+      "pointsPerCurve": 40,
+      "family": 3
+    },
+    {
+      "name": "Fiber_Bundle_124",
+      "offset": 4365760,
+      "curves": 220,
+      "pointsPerCurve": 40,
+      "family": 4
+    },
+    {
+      "name": "Fiber_Bundle_125",
+      "offset": 4400960,
+      "curves": 220,
+      "pointsPerCurve": 40,
+      "family": 5
+    },
+    {
+      "name": "Fiber_Bundle_126",
+      "offset": 4436160,
+      "curves": 220,
+      "pointsPerCurve": 40,
+      "family": 6
+    },
+    {
+      "name": "Fiber_Bundle_127",
+      "offset": 4471360,
+      "curves": 220,
+      "pointsPerCurve": 40,
+      "family": 7
+    }
+  ],
+  "parts": [
+    {
+      "name": "Native_Fleece_Arm_L",
+      "surface": "Arm_L",
+      "offset": 0,
+      "count": 2800,
+      "stride": 11
+    },
+    {
+      "name": "Native_Fleece_Arm_R",
+      "surface": "Arm_R",
+      "offset": 30800,
+      "count": 2800,
+      "stride": 11
+    },
+    {
+      "name": "Native_Fleece_Fleece_Shell",
+      "surface": "Fleece_Shell",
+      "offset": 61600,
+      "count": 22000,
+      "stride": 11
+    },
+    {
+      "name": "Native_Fleece_Leg_L",
+      "surface": "Leg_L",
+      "offset": 303600,
+      "count": 1900,
+      "stride": 11
+    },
+    {
+      "name": "Native_Fleece_Leg_R",
+      "surface": "Leg_R",
+      "offset": 324500,
+      "count": 1900,
+      "stride": 11
+    }
+  ],
+  "nap": [
+    {
+      "name": "Short_Nap_Face",
+      "sourceCount": 129755,
+      "count": 16220,
+      "offset": 0,
+      "stride": 12,
+      "head": true
+    },
+    {
+      "name": "Short_Nap_Foot_L",
+      "sourceCount": 19500,
+      "count": 6500,
+      "offset": 194640,
+      "stride": 12,
+      "head": false
+    },
+    {
+      "name": "Short_Nap_Foot_R",
+      "sourceCount": 19500,
+      "count": 6500,
+      "offset": 272640,
+      "stride": 12,
+      "head": false
+    },
+    {
+      "name": "Short_Nap_Hand_L",
+      "sourceCount": 15000,
+      "count": 5000,
+      "offset": 350640,
+      "stride": 12,
+      "head": false
+    },
+    {
+      "name": "Short_Nap_Hand_R",
+      "sourceCount": 15000,
+      "count": 5000,
+      "offset": 410640,
+      "stride": 12,
+      "head": false
+    }
+  ],
+  "sourceRoots": 31400,
+  "sourceFibersPerTuft": 220,
+  "webLOD": "Envelope of actual native core fibers, native undercoat centerlines, microfiber shading and sampled native short nap",
+  "woolColors": [
+    [
+      0.7835377915261935,
+      0.6038273388553378,
+      0.4019777798321958
+    ],
+    [
+      0.8631572134541023,
+      0.7156935005064807,
+      0.4910208498478356
+    ]
+  ],
+  "materials": {
+    "D_Pad_Edge_Thread": {
+      "color": [
+        0.25015828013420105,
+        0.22322796285152435,
+        0.18447498977184296,
+        1.0
+      ],
+      "roughness": 0.8799999952316284,
+      "metalness": 0.0
+    },
+    "D_Polished_Edge": {
+      "color": [
+        0.577580451965332,
+        0.5647115111351013,
+        0.5149176716804504,
+        1.0
+      ],
+      "roughness": 0.25,
+      "metalness": 0.9399999976158142
+    },
+    "D_Recessed_Joint": {
+      "color": [
+        0.061246052384376526,
+        0.05612849071621895,
+        0.04970656707882881,
+        1.0
+      ],
+      "roughness": 0.6499999761581421,
+      "metalness": 0.0
+    },
+    "D_Satin_Micrograin_WarmSilver": {
+      "color": [
+        0.5520114302635193,
+        0.5394794940948486,
+        0.4910208582878113,
+        1.0
+      ],
+      "roughness": 0.4300000071525574,
+      "metalness": 0.9200000166893005
+    },
+    "D_Soft_Taupe_Cushion": {
+      "color": [
+        0.18447498977184296,
+        0.16826939582824707,
+        0.14126329123973846,
+        1.0
+      ],
+      "roughness": 0.7099999785423279,
+      "metalness": 0.0
+    },
+    "Jolly_V15_Dark_Brown_Nose": {
+      "color": [
+        0.026241222396492958,
+        0.011612244881689548,
+        0.004776953253895044,
+        1.0
+      ],
+      "roughness": 0.28999999165534973,
+      "metalness": 0.0
+    },
+    "Jolly_V15_Ear_Cushion": {
+      "color": [
+        0.16513219475746155,
+        0.14126329123973846,
+        0.109461709856987,
+        1.0
+      ],
+      "roughness": 0.9300000071525574,
+      "metalness": 0.0
+    },
+    "Jolly_V15_Fine_Loop_PBR": {
+      "color": [
+        0.800000011920929,
+        0.800000011920929,
+        0.800000011920929,
+        1.0
+      ],
+      "roughness": 0.9700000286102295,
+      "metalness": 0.0
+    },
+    "Jolly_V15_Glossy_Dark_Brown_Eyes": {
+      "color": [
+        0.019382361322641373,
+        0.009721217676997185,
+        0.0043914420530200005,
+        1.0
+      ],
+      "roughness": 0.2199999988079071,
+      "metalness": 0.0
+    },
+    "Jolly_V15_Satin_Aluminium": {
+      "color": [
+        0.7605245113372803,
+        0.7304607629776001,
+        0.672443151473999,
+        1.0
+      ],
+      "roughness": 0.23999999463558197,
+      "metalness": 0.9200000166893005
+    },
+    "Jolly_V15_Satin_Headband": {
+      "color": [
+        0.7605245113372803,
+        0.7304607629776001,
+        0.672443151473999,
+        1.0
+      ],
+      "roughness": 0.30000001192092896,
+      "metalness": 0.9200000166893005
+    },
+    "Jolly_V15_Short_Pile_Face_PBR": {
+      "color": [
+        0.800000011920929,
+        0.800000011920929,
+        0.800000011920929,
+        1.0
+      ],
+      "roughness": 0.9599999785423279,
+      "metalness": 0.0
+    },
+    "Jolly_V17_Short_Pile_Foot_L": {
+      "color": [
+        0.800000011920929,
+        0.800000011920929,
+        0.800000011920929,
+        1.0
+      ],
+      "roughness": 1.0,
+      "metalness": 0.0
+    },
+    "Jolly_V17_Short_Pile_Foot_R": {
+      "color": [
+        0.800000011920929,
+        0.800000011920929,
+        0.800000011920929,
+        1.0
+      ],
+      "roughness": 1.0,
+      "metalness": 0.0
+    },
+    "Jolly_V17_Short_Pile_Hand_L": {
+      "color": [
+        0.800000011920929,
+        0.800000011920929,
+        0.800000011920929,
+        1.0
+      ],
+      "roughness": 1.0,
+      "metalness": 0.0
+    },
+    "Jolly_V17_Short_Pile_Hand_R": {
+      "color": [
+        0.800000011920929,
+        0.800000011920929,
+        0.800000011920929,
+        1.0
+      ],
+      "roughness": 1.0,
+      "metalness": 0.0
+    },
+    "RR_Dark_Brown_Beads": {
+      "color": [
+        0.015208514407277107,
+        0.007499032188206911,
+        0.0043914420530200005,
+        1.0
+      ],
+      "roughness": 0.1899999976158142,
+      "metalness": 0.0
+    },
+    "RR_Fleece_Undercoat": {
+      "color": [
+        0.5840784311294556,
+        0.4125426113605499,
+        0.2345505803823471,
+        1.0
+      ],
+      "roughness": 0.9399999976158142,
+      "metalness": 0.0
+    },
+    "RR_Short_Nap_Face": {
+      "color": [
+        0.7379103899002075,
+        0.577580451965332,
+        0.3613067865371704,
+        1.0
+      ],
+      "roughness": 0.8899999856948853,
+      "metalness": 0.0
+    },
+    "RR_Soft_Paired_Pads": {
+      "color": [
+        0.5088813304901123,
+        0.35640013217926025,
+        0.2015562504529953,
+        1.0
+      ],
+      "roughness": 0.8999999761581421,
+      "metalness": 0.0
+    },
+    "Studio_Warm_Gray": {
+      "color": [
+        0.7230551242828369,
+        0.6938717365264893,
+        0.637596845626831,
+        1.0
+      ],
+      "roughness": 0.8500000238418579,
+      "metalness": 0.0
+    }
+  }
+}

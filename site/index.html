@@ -1,0 +1,58 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#f3eee6">
+  <title>Jolly Muse — 与你，目光相遇</title>
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='22' fill='%23e2cbb0'/%3E%3Ctext x='32' y='47' text-anchor='middle' font-size='46' font-family='Georgia' fill='%234b392d'%3EJ%3C/text%3E%3C/svg%3E">
+  <link rel="stylesheet" href="./src/style.css">
+  <script type="importmap">{"imports":{"three":"./vendor/three/build/three.module.js","three/addons/":"./vendor/three/addons/"}}</script>
+</head>
+<body>
+  <svg class="icon-defs" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"><defs>
+    <symbol id="i-pause" viewBox="0 0 24 24"><path d="M8 5v14M16 5v14"/></symbol>
+    <symbol id="i-play" viewBox="0 0 24 24"><path d="m9 5 10 7-10 7Z"/></symbol>
+    <symbol id="i-center" viewBox="0 0 24 24"><path d="M8 4H4v4m12-4h4v4M4 16v4h4m12-4v4h-4"/><circle cx="12" cy="12" r="1.5"/></symbol>
+    <symbol id="i-arrow" viewBox="0 0 24 24"><path d="M6 18 18 6M6 6h12v12"/></symbol>
+    <symbol id="i-chevron" viewBox="0 0 24 24"><path d="m6 9 6 6 6-6"/></symbol>
+    <symbol id="i-close" viewBox="0 0 24 24"><path d="m6 6 12 12M18 6 6 18"/></symbol>
+  </defs></svg>
+
+  <main class="experience" id="experience" aria-label="Jolly 互动空间">
+    <header class="navigation" data-ui>
+      <a class="wordmark" href="./" aria-label="Jolly Muse 首页">JOLLY MUSE</a>
+      <nav aria-label="主导航"><button id="space" class="nav-link" aria-current="page">互动空间</button><span class="nav-divider"></span><button id="about" class="nav-link">关于 Jolly</button></nav>
+      <button class="explore" id="explore" aria-pressed="false">自由探索 <svg class="icon"><use href="#i-arrow"/></svg></button>
+    </header>
+    <button class="exit-explore" id="exit-explore" data-ui>退出探索 <svg class="icon"><use href="#i-close"/></svg></button>
+    <p class="explore-hint">拖动，看看另一面。滚轮拉近 · Esc 返回</p>
+
+    <h1 class="backdrop-word" aria-label="Jolly">JOLLY</h1>
+    <div class="stage" id="stage" tabindex="0" role="application" aria-label="移动鼠标或拖动手指，让 Jolly 望向你。也可以使用方向键；空格暂停，Home 回正。"></div>
+    <div class="loading" id="loading" role="status"><span class="loading-orbit"></span><span id="loading-text">Jolly 正在走来…</span></div>
+    <div class="load-error" id="load-error" hidden role="alert"><p>Jolly 暂时没有准备好</p><p id="error-detail"></p><button id="retry">再试一次</button></div>
+
+    <aside class="side-note"><span></span><p>与你，目光相遇。</p></aside>
+    <p class="follow-status" id="follow-status"><span></span><span id="status-text">跟随已开启</span></p>
+
+    <footer class="caption"><p class="tagline">A little company. A little joy.</p><p class="hint" id="hint">移动鼠标，和 Jolly 打个招呼。</p></footer>
+    <div class="controls" data-ui>
+      <div class="motion-controls"><button class="round-button" id="pause" aria-label="暂停跟随" aria-pressed="false" title="暂停跟随 · 空格"><svg class="icon"><use id="pause-icon" href="#i-pause"/></svg></button><button class="round-button" id="recenter" aria-label="回到正面" title="回到正面 · Home"><svg class="icon"><use href="#i-center"/></svg></button></div>
+      <div class="quality-control"><label for="quality">画质：</label><select id="quality" aria-label="画质"><option value="auto">自动</option><option value="high">精细</option><option value="balanced">均衡</option><option value="low">流畅</option></select><svg class="icon"><use href="#i-chevron"/></svg></div>
+    </div>
+    <div class="cursor-ring" id="cursor-ring" aria-hidden="true"></div>
+  </main>
+
+  <dialog id="about-dialog" aria-labelledby="about-title" data-ui>
+    <button class="round-button dialog-close" id="close-about" aria-label="关闭"><svg class="icon"><use href="#i-close"/></svg></button>
+    <p class="dialog-brand">JOLLY MUSE</p><h2 id="about-title">有些陪伴，<br>不需要说话。</h2>
+    <p>把鼠标轻轻移向一边，Jolly 就会望向你。<br>停一停，也可以。它会在这里陪着你。</p>
+    <div class="dialog-help"><span>鼠标移动 / 手指拖动</span><span>方向键调整目光</span><span>空格暂停 · Home 回正</span></div>
+    <a class="alternate-view" id="alternate-view" href="?view=3d">打开三维探索 <span aria-hidden="true">↗</span></a>
+    <button class="dialog-return" id="return-to-jolly">回到 Jolly <svg class="icon"><use href="#i-arrow"/></svg></button>
+  </dialog>
+  <script>if(location.protocol==='file:'){document.getElementById('loading').hidden=true;document.getElementById('load-error').hidden=false;document.getElementById('error-detail').textContent='请双击同一文件夹中的“启动网页.cmd”来打开互动网页。';document.getElementById('retry').hidden=true;}</script>
+  <script type="module" src="./src/main.js"></script>
+</body>
+</html>

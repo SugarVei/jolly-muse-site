@@ -1,0 +1,35 @@
+{
+  "assetVersion": "2.1.0",
+  "geometryRevision": "d4",
+  "geometryBaked": true,
+  "sourceSHA256": "ddf4f22b44778400b5a9fe020167954f222f434f8ff8019489eea642d1c1b59c",
+  "sourceBlend": "D:\\Users\\86181\\Documents\\日常\\Jolly_毛团耳机精修_20261023\\模型源文件\\Jolly_ReferenceRebuild_Master.blend",
+  "model": "d4/jolly-d4.glb",
+  "groom": "d4/groom.json",
+  "headNode": "Jolly_Head_Control_Web",
+  "continuousShell": "Fleece_Shell",
+  "neckPivot": [
+    0,
+    1.4537444710731506,
+    0
+  ],
+  "neckBlend": [
+    1.123348,
+    1.4867841
+  ],
+  "stationaryNodes": [
+    "Arm_L",
+    "Arm_R",
+    "Leg_L",
+    "Leg_R",
+    "Hand_L",
+    "Hand_R",
+    "Foot_L",
+    "Foot_R"
+  ],
+  "sourceUnits": "meter",
+  "webUnitsPerMeter": 10,
+  "nativeNeckBinding": true,
+  "materialRevision": "d4-native-pbr-realtime",
+  "notes": "Saved Master is unchanged; browser strand LOD differs from full Cycles fiber render."
+}
