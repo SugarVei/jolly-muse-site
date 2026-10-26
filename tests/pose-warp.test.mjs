@@ -39,3 +39,21 @@ test('all color and raw displacement atlases are present',async()=>{
   assert.equal(atlas.images.length,5);assert.equal(atlas.flows.length,5);
   for(const file of [...atlas.images,...atlas.flows.flat()])assert.ok((await stat(new URL(file,root))).size>0);
 });
+
+test('continuous neck assets use lossless color and stop warping before the stationary body anchor',async()=>{
+  assert.equal(atlas.colorEncoding,'lossless RGBA');
+  assert.ok(atlas.warpFade[0]<atlas.warpFade[1]);
+  assert.ok(atlas.warpFade[1]<=atlas.neckContinuousUntil);
+  assert.ok(atlas.neckContinuousUntil<atlas.stationaryBodyStart);
+  assert.ok(atlas.neckContinuousUntil>=.60);
+  for(const file of atlas.images){
+    const bytes=await readFile(new URL(file,root));let offset=12,lossless=false;
+    assert.equal(bytes.toString('ascii',0,4),'RIFF');assert.equal(bytes.toString('ascii',8,12),'WEBP');
+    while(offset+8<=bytes.length){
+      const chunk=bytes.toString('ascii',offset,offset+4),size=bytes.readUInt32LE(offset+4);
+      assert.notEqual(chunk,'VP8 ','Lossy neck color returned');if(chunk==='VP8L')lossless=true;
+      offset+=8+size+(size&1);
+    }
+    assert.ok(lossless);
+  }
+});

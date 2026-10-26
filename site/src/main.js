@@ -1,5 +1,5 @@
 const sequenceMode=new URLSearchParams(location.search).get('view')!=='3d';
-const {createJolly}=await import(sequenceMode?'./scene-unified.js?v=3.3.0':'./scene-d4.js');
+const {createJolly}=await import(sequenceMode?'./scene-unified.js?v=3.4.0':'./scene-d4.js');
 const $=id=>document.getElementById(id);
 const stage=$('stage'),dialog=$('about-dialog'),ring=$('cursor-ring');
 const reduced=matchMedia('(prefers-reduced-motion: reduce)');

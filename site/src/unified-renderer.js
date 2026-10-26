@@ -11,9 +11,8 @@ export function createPoseRenderer(canvas){
       draw(bank,flow,pose,rect,width,height,dpr,atlas){
         ctx.setTransform(dpr,0,0,dpr,0,0);ctx.globalAlpha=1;ctx.globalCompositeOperation='source-over';
         ctx.drawImage(backdrop,0,0,width,height);ctx.imageSmoothingEnabled=true;ctx.imageSmoothingQuality='high';
-        const sx=pose.col%atlas.columns*bank.width,sy=Math.floor(pose.col/atlas.columns)*bank.height,cut=.54;
-        ctx.drawImage(bank.items[pose.row].bitmap,sx,sy,bank.width,bank.height*cut,rect.x,rect.y,rect.w,rect.h*cut);
-        ctx.drawImage(bank.items[2].bitmap,4*bank.width,bank.height*(1+cut),bank.width,bank.height*(1-cut),rect.x,rect.y+rect.h*cut,rect.w,rect.h*(1-cut));
+        const sx=pose.col%atlas.columns*bank.width,sy=Math.floor(pose.col/atlas.columns)*bank.height;
+        ctx.drawImage(bank.items[pose.row].bitmap,sx,sy,bank.width,bank.height,rect.x,rect.y,rect.w,rect.h);
       }};
   }
   function shader(type,source){const s=gl.createShader(type);gl.shaderSource(s,source);gl.compileShader(s);if(!gl.getShaderParameter(s,gl.COMPILE_STATUS))throw new Error(gl.getShaderInfoLog(s));return s;}
@@ -23,15 +22,16 @@ export function createPoseRenderer(canvas){
   `);
   const fragment=shader(gl.FRAGMENT_SHADER,`
     precision highp float;
-    uniform sampler2D colorImage;uniform sampler2D bodyImage;uniform sampler2D yawFlow;uniform sampler2D pitchFlow;uniform sampler2D backdrop;
-    uniform vec4 rect;uniform vec2 viewport;uniform vec2 tile;uniform vec2 bodyTile;uniform vec2 pack;uniform vec2 delta;uniform vec2 nativeSize;uniform vec2 cellSize;uniform vec2 flowSize;
+    uniform sampler2D colorImage;uniform sampler2D yawFlow;uniform sampler2D pitchFlow;uniform sampler2D backdrop;
+    uniform vec4 rect;uniform vec2 viewport;uniform vec2 tile;uniform vec2 neckFade;uniform vec2 pack;uniform vec2 delta;uniform vec2 nativeSize;uniform vec2 cellSize;uniform vec2 flowSize;
     varying vec2 screenUV;
     vec2 cellUV(vec2 point,vec2 size,vec2 cell){return (cell+clamp(point,1.5/size,1.-1.5/size))/pack;}
     vec2 displacement(vec2 point){
       vec4 x=texture2D(yawFlow,cellUV(point,flowSize,tile)),y=texture2D(pitchFlow,cellUV(point,flowSize,tile));
       vec2 dx=((delta.x<0.?x.rg:x.ba)*255.-128.)*.5,dy=((delta.y<0.?y.rg:y.ba)*255.-128.)*.5;
-      // The torso does not follow the pointer. Do not stretch its fine fleece.
-      return (dx*abs(delta.x)+dy*abs(delta.y))/nativeSize*(1.-smoothstep(.43,.54,point.y));
+      // Preserve the native neck deformation. Fade displacement only where
+      // the source renders have already reached the stationary upper torso.
+      return (dx*abs(delta.x)+dy*abs(delta.y))/nativeSize*(1.-smoothstep(neckFade.x,neckFade.y,point.y));
     }
     // Catmull-Rom reconstruction: nine bilinear taps retain fine fleece at
     // fractional coordinates, without switching filters when motion stops.
@@ -49,13 +49,10 @@ export function createPoseRenderer(canvas){
     void main(){
       vec3 paper=texture2D(backdrop,screenUV).rgb;vec2 uv=(screenUV*viewport-rect.xy)/rect.zw;
       if(any(lessThan(uv,vec2(0.)))||any(greaterThan(uv,vec2(1.)))){gl_FragColor=vec4(paper,1.);return;}
-      vec4 color;
-      if(uv.y>=.56){color=sharp(bodyImage,uv,bodyTile);}
-      else{
-        vec2 source=uv;for(int i=0;i<4;i++){source=uv-displacement(source);}
-        color=sharp(colorImage,source,tile);
-        if(uv.y>.50)color=mix(color,sharp(bodyImage,uv,bodyTile),smoothstep(.50,.56,uv.y));
-      }
+      // Head, neck, and torso always sample the same complete pose. In
+      // particular, never fade the moving neck into a different rest pose.
+      vec2 source=uv;if(uv.y<neckFade.y){for(int i=0;i<4;i++){source=uv-displacement(source);}}
+      vec4 color=sharp(colorImage,source,tile);
       gl_FragColor=vec4(color.rgb+paper*(1.-color.a),1.);
     }
   `);
@@ -63,8 +60,8 @@ export function createPoseRenderer(canvas){
   if(!gl.getProgramParameter(program,gl.LINK_STATUS))throw new Error(gl.getProgramInfoLog(program));
   const vertices=gl.createBuffer();gl.bindBuffer(gl.ARRAY_BUFFER,vertices);gl.bufferData(gl.ARRAY_BUFFER,new Float32Array([0,0,1,0,0,1,0,1,1,0,1,1]),gl.STATIC_DRAW);
   gl.useProgram(program);const position=gl.getAttribLocation(program,'position');gl.enableVertexAttribArray(position);gl.vertexAttribPointer(position,2,gl.FLOAT,false,0,0);
-  const uniforms=Object.fromEntries(['rect','viewport','tile','bodyTile','pack','delta','nativeSize','cellSize','flowSize','colorImage','yawFlow','pitchFlow','bodyImage','backdrop'].map(n=>[n,gl.getUniformLocation(program,n)]));
-  for(const [name,unit] of [['colorImage',0],['yawFlow',1],['pitchFlow',2],['bodyImage',3],['backdrop',4]])gl.uniform1i(uniforms[name],unit);
+  const uniforms=Object.fromEntries(['rect','viewport','tile','neckFade','pack','delta','nativeSize','cellSize','flowSize','colorImage','yawFlow','pitchFlow','backdrop'].map(n=>[n,gl.getUniformLocation(program,n)]));
+  for(const [name,unit] of [['colorImage',0],['yawFlow',1],['pitchFlow',2],['backdrop',3]])gl.uniform1i(uniforms[name],unit);
   gl.disable(gl.BLEND);gl.disable(gl.DEPTH_TEST);let setting=null;
   function upload(source,close=false){
     const texture=gl.createTexture();gl.bindTexture(gl.TEXTURE_2D,texture);
@@ -84,9 +81,9 @@ export function createPoseRenderer(canvas){
     finishReady(){gl.finish();},
     draw(bank,flows,pose,rect,width,height,dpr,atlas){
       gl.viewport(0,0,canvas.width,canvas.height);gl.useProgram(program);
-      for(const [unit,item] of [[0,bank.items[pose.row]],[1,flows[pose.row][0]],[2,flows[pose.row][1]],[3,bank.items[2]],[4,setting]]){gl.activeTexture(gl.TEXTURE0+unit);gl.bindTexture(gl.TEXTURE_2D,item.texture);}
+      for(const [unit,item] of [[0,bank.items[pose.row]],[1,flows[pose.row][0]],[2,flows[pose.row][1]],[3,setting]]){gl.activeTexture(gl.TEXTURE0+unit);gl.bindTexture(gl.TEXTURE_2D,item.texture);}
       gl.uniform4f(uniforms.rect,rect.x,rect.y,rect.w,rect.h);gl.uniform2f(uniforms.viewport,width,height);
-      gl.uniform2f(uniforms.tile,pose.col%atlas.columns,Math.floor(pose.col/atlas.columns));gl.uniform2f(uniforms.bodyTile,4,1);gl.uniform2f(uniforms.pack,atlas.columns,atlas.rows);
+      gl.uniform2f(uniforms.tile,pose.col%atlas.columns,Math.floor(pose.col/atlas.columns));gl.uniform2f(uniforms.neckFade,...(atlas.warpFade||[.55,.60]));gl.uniform2f(uniforms.pack,atlas.columns,atlas.rows);
       gl.uniform2f(uniforms.delta,pose.dx,pose.dy);gl.uniform2f(uniforms.nativeSize,atlas.width,atlas.height);gl.uniform2f(uniforms.cellSize,bank.width,bank.height);gl.uniform2f(uniforms.flowSize,atlas.flowWidth,atlas.flowHeight);
       gl.drawArrays(gl.TRIANGLES,0,6);
     },

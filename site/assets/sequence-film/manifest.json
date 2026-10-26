@@ -1,6 +1,6 @@
 {
   "version": "3.0.0",
-  "playerVersion": "3.3.0",
+  "playerVersion": "3.4.0",
   "sourceSHA256": "ddf4f22b44778400b5a9fe020167954f222f434f8ff8019489eea642d1c1b59c",
   "representation": "native Cycles renders with optical-flow intermediate poses",
   "fullDensityHair": true,
@@ -221,7 +221,7 @@
     }
   },
   "warpAtlas": {
-    "version": 1,
+    "version": 2,
     "width": 720,
     "height": 960,
     "flowWidth": 180,
@@ -289,11 +289,11 @@
       72
     ],
     "images": [
-      "warp-v32/native-p00.webp",
-      "warp-v32/native-p01.webp",
-      "warp-v32/native-p02.webp",
-      "warp-v32/native-p03.webp",
-      "warp-v32/native-p04.webp"
+      "neck-v34/native-p00.webp",
+      "neck-v34/native-p01.webp",
+      "neck-v34/native-p02.webp",
+      "neck-v34/native-p03.webp",
+      "neck-v34/native-p04.webp"
     ],
     "flows": [
       [
@@ -323,6 +323,13 @@
       0.9125,
       0.9322916666666666
     ],
-    "method": "single native pose, inverse displacement warp; no pose crossfade"
+    "method": "one full-pose texture; native neck retained; stationary torso anchored below the neck",
+    "neckContinuousUntil": 0.6,
+    "stationaryBodyStart": 0.625,
+    "warpFade": [
+      0.55,
+      0.6
+    ],
+    "colorEncoding": "lossless RGBA"
   }
 }
