@@ -1,6 +1,6 @@
 {
   "version": "3.0.0",
-  "playerVersion": "3.1.0",
+  "playerVersion": "3.2.0",
   "sourceSHA256": "ddf4f22b44778400b5a9fe020167954f222f434f8ff8019489eea642d1c1b59c",
   "representation": "native Cycles renders with optical-flow intermediate poses",
   "fullDensityHair": true,
@@ -219,5 +219,110 @@
         ]
       }
     }
+  },
+  "warpAtlas": {
+    "version": 1,
+    "width": 720,
+    "height": 960,
+    "flowWidth": 180,
+    "flowHeight": 240,
+    "columns": 5,
+    "rows": 4,
+    "flowZero": 128,
+    "flowScale": 2,
+    "grid": {
+      "yaw": [
+        -36,
+        -32.0,
+        -28.0,
+        -24.0,
+        -20.0,
+        -16.0,
+        -12.0,
+        -8.0,
+        -4.0,
+        0.0,
+        4.0,
+        8.0,
+        12.0,
+        16.0,
+        20.0,
+        24.0,
+        28.0,
+        32.0,
+        36.0
+      ],
+      "pitch": [
+        -12,
+        -6.0,
+        0.0,
+        6.0,
+        12.0
+      ]
+    },
+    "sourceRows": [
+      0,
+      4,
+      8,
+      12,
+      16
+    ],
+    "sourceCols": [
+      0,
+      4,
+      8,
+      12,
+      16,
+      20,
+      24,
+      28,
+      32,
+      36,
+      40,
+      44,
+      48,
+      52,
+      56,
+      60,
+      64,
+      68,
+      72
+    ],
+    "images": [
+      "warp-v32/native-p00.webp",
+      "warp-v32/native-p01.webp",
+      "warp-v32/native-p02.webp",
+      "warp-v32/native-p03.webp",
+      "warp-v32/native-p04.webp"
+    ],
+    "flows": [
+      [
+        "warp-v32/yaw-p00.png",
+        "warp-v32/pitch-p00.png"
+      ],
+      [
+        "warp-v32/yaw-p01.png",
+        "warp-v32/pitch-p01.png"
+      ],
+      [
+        "warp-v32/yaw-p02.png",
+        "warp-v32/pitch-p02.png"
+      ],
+      [
+        "warp-v32/yaw-p03.png",
+        "warp-v32/pitch-p03.png"
+      ],
+      [
+        "warp-v32/yaw-p04.png",
+        "warp-v32/pitch-p04.png"
+      ]
+    ],
+    "modelBounds": [
+      0.08472222222222223,
+      0.08229166666666667,
+      0.9125,
+      0.9322916666666666
+    ],
+    "method": "single native pose, inverse displacement warp; no pose crossfade"
   }
 }

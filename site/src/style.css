@@ -36,3 +36,5 @@ dialog{width:480px;max-width:calc(100% - 32px);padding:44px 42px 35px;border:1px
 .immersive .explore-hint{display:block}
 .immersive .cursor-ring{display:none}
 @media(max-width:700px){.explore-hint{bottom:15%;font-size:11px}}
+.sequence-mode .stage:before{top:var(--floor-y);width:var(--floor-width);transform:translateX(-50%)}
+.sequence-mode .stage:after{top:var(--floor-y);width:var(--contact-width)}
