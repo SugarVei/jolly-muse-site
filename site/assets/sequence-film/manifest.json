@@ -1,6 +1,6 @@
 {
   "version": "3.0.0",
-  "playerVersion": "3.2.0",
+  "playerVersion": "3.3.0",
   "sourceSHA256": "ddf4f22b44778400b5a9fe020167954f222f434f8ff8019489eea642d1c1b59c",
   "representation": "native Cycles renders with optical-flow intermediate poses",
   "fullDensityHair": true,

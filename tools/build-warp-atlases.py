@@ -67,7 +67,7 @@ for row in range(5):
     print('packed row',row,flush=True)
 
 box=[min(b[0] for b in bounds)/W,min(b[1] for b in bounds)/H,max(b[2] for b in bounds)/W,max(b[3] for b in bounds)/H]
-manifest['playerVersion']='3.2.0'
+manifest['playerVersion']='3.3.0'
 manifest['warpAtlas']={'version':1,'width':W,'height':H,'flowWidth':FW,'flowHeight':FH,'columns':COLS,'rows':ROWS,
     'flowZero':128,'flowScale':2,'grid':old['grid'],'sourceRows':old['sourceRows'],'sourceCols':old['sourceCols'],
     'images':color_files,'flows':flow_files,'modelBounds':box,'method':'single native pose, inverse displacement warp; no pose crossfade'}
