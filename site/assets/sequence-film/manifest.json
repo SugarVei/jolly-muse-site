@@ -1,6 +1,6 @@
 {
   "version": "3.0.0",
-  "playerVersion": "3.0.1",
+  "playerVersion": "3.1.0",
   "sourceSHA256": "ddf4f22b44778400b5a9fe020167954f222f434f8ff8019489eea642d1c1b59c",
   "representation": "native Cycles renders with optical-flow intermediate poses",
   "fullDensityHair": true,
@@ -132,5 +132,92 @@
   "renderFrameCount": 95,
   "interpolatedFrames": 1146,
   "nativeStride": 4,
-  "interpolation": "bidirectional optical flow; static lower body; original renders at each fourth row and column"
+  "interpolation": "bidirectional optical flow; static lower body; original renders at each fourth row and column",
+  "motionAtlas": {
+    "version": 1,
+    "columns": 5,
+    "rows": 4,
+    "grid": {
+      "yaw": [
+        -36,
+        -32.0,
+        -28.0,
+        -24.0,
+        -20.0,
+        -16.0,
+        -12.0,
+        -8.0,
+        -4.0,
+        0.0,
+        4.0,
+        8.0,
+        12.0,
+        16.0,
+        20.0,
+        24.0,
+        28.0,
+        32.0,
+        36.0
+      ],
+      "pitch": [
+        -12,
+        -6.0,
+        0.0,
+        6.0,
+        12.0
+      ]
+    },
+    "sourceRows": [
+      0,
+      4,
+      8,
+      12,
+      16
+    ],
+    "sourceCols": [
+      0,
+      4,
+      8,
+      12,
+      16,
+      20,
+      24,
+      28,
+      32,
+      36,
+      40,
+      44,
+      48,
+      52,
+      56,
+      60,
+      64,
+      68,
+      72
+    ],
+    "tiers": {
+      "balanced": {
+        "width": 480,
+        "height": 640,
+        "files": [
+          "motion/balanced-p00.webp",
+          "motion/balanced-p04.webp",
+          "motion/balanced-p08.webp",
+          "motion/balanced-p12.webp",
+          "motion/balanced-p16.webp"
+        ]
+      },
+      "high": {
+        "width": 720,
+        "height": 960,
+        "files": [
+          "motion/high-p00.webp",
+          "motion/high-p04.webp",
+          "motion/high-p08.webp",
+          "motion/high-p12.webp",
+          "motion/high-p16.webp"
+        ]
+      }
+    }
+  }
 }
