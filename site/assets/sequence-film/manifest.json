@@ -1,10 +1,10 @@
 {
-  "version": "3.0.0",
-  "playerVersion": "3.4.0",
-  "sourceSHA256": "ddf4f22b44778400b5a9fe020167954f222f434f8ff8019489eea642d1c1b59c",
-  "representation": "native Cycles renders with optical-flow intermediate poses",
+  "version": "3.5.0",
+  "playerVersion": "3.5.0",
+  "sourceSHA256": "a127a8f776579584bc04159ded6c3987f698c0abbd37a21c27d045f545a38cff",
+  "representation": "95 native HD Cycles poses with local optical-flow displacement; no pose crossfade",
   "fullDensityHair": true,
-  "frameCount": 1241,
+  "frameCount": 95,
   "grid": {
     "yaw": [
       -36,
@@ -124,13 +124,13 @@
       "quality": 91
     }
   },
-  "renderSamples": 16,
+  "renderSamples": 96,
   "renderResolution": [
-    720,
-    960
+    1440,
+    1920
   ],
   "renderFrameCount": 95,
-  "interpolatedFrames": 1146,
+  "interpolatedFrames": 0,
   "nativeStride": 4,
   "interpolation": "bidirectional optical flow; static lower body; original renders at each fourth row and column",
   "motionAtlas": {
@@ -221,9 +221,9 @@
     }
   },
   "warpAtlas": {
-    "version": 2,
-    "width": 720,
-    "height": 960,
+    "version": 3,
+    "width": 1440,
+    "height": 1920,
     "flowWidth": 180,
     "flowHeight": 240,
     "columns": 5,
@@ -289,36 +289,36 @@
       72
     ],
     "images": [
-      "neck-v34/native-p00.webp",
-      "neck-v34/native-p01.webp",
-      "neck-v34/native-p02.webp",
-      "neck-v34/native-p03.webp",
-      "neck-v34/native-p04.webp"
+      "hd-v35/1440/native-p00.webp",
+      "hd-v35/1440/native-p01.webp",
+      "hd-v35/1440/native-p02.webp",
+      "hd-v35/1440/native-p03.webp",
+      "hd-v35/1440/native-p04.webp"
     ],
     "flows": [
       [
-        "warp-v32/yaw-p00.png",
-        "warp-v32/pitch-p00.png"
+        "hd-v35/flow/yaw-p00.png",
+        "hd-v35/flow/pitch-p00.png"
       ],
       [
-        "warp-v32/yaw-p01.png",
-        "warp-v32/pitch-p01.png"
+        "hd-v35/flow/yaw-p01.png",
+        "hd-v35/flow/pitch-p01.png"
       ],
       [
-        "warp-v32/yaw-p02.png",
-        "warp-v32/pitch-p02.png"
+        "hd-v35/flow/yaw-p02.png",
+        "hd-v35/flow/pitch-p02.png"
       ],
       [
-        "warp-v32/yaw-p03.png",
-        "warp-v32/pitch-p03.png"
+        "hd-v35/flow/yaw-p03.png",
+        "hd-v35/flow/pitch-p03.png"
       ],
       [
-        "warp-v32/yaw-p04.png",
-        "warp-v32/pitch-p04.png"
+        "hd-v35/flow/yaw-p04.png",
+        "hd-v35/flow/pitch-p04.png"
       ]
     ],
     "modelBounds": [
-      0.08472222222222223,
+      0.08541666666666667,
       0.08229166666666667,
       0.9125,
       0.9322916666666666
@@ -330,6 +330,56 @@
       0.55,
       0.6
     ],
-    "colorEncoding": "lossless RGBA"
+    "colorEncoding": "lossless RGBA",
+    "flowReferenceSize": [
+      720,
+      960
+    ],
+    "colorTiers": {
+      "480": {
+        "width": 480,
+        "height": 640,
+        "images": [
+          "hd-v35/480/native-p00.webp",
+          "hd-v35/480/native-p01.webp",
+          "hd-v35/480/native-p02.webp",
+          "hd-v35/480/native-p03.webp",
+          "hd-v35/480/native-p04.webp"
+        ]
+      },
+      "720": {
+        "width": 720,
+        "height": 960,
+        "images": [
+          "hd-v35/720/native-p00.webp",
+          "hd-v35/720/native-p01.webp",
+          "hd-v35/720/native-p02.webp",
+          "hd-v35/720/native-p03.webp",
+          "hd-v35/720/native-p04.webp"
+        ]
+      },
+      "1080": {
+        "width": 1080,
+        "height": 1440,
+        "images": [
+          "hd-v35/1080/native-p00.webp",
+          "hd-v35/1080/native-p01.webp",
+          "hd-v35/1080/native-p02.webp",
+          "hd-v35/1080/native-p03.webp",
+          "hd-v35/1080/native-p04.webp"
+        ]
+      },
+      "1440": {
+        "width": 1440,
+        "height": 1920,
+        "images": [
+          "hd-v35/1440/native-p00.webp",
+          "hd-v35/1440/native-p01.webp",
+          "hd-v35/1440/native-p02.webp",
+          "hd-v35/1440/native-p03.webp",
+          "hd-v35/1440/native-p04.webp"
+        ]
+      }
+    }
   }
 }

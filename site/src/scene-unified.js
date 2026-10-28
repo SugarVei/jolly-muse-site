@@ -1,17 +1,18 @@
-import {clamp,pointerPose} from './sequence-core.js?v=3.4.0';
-import {selectWarpPose,fitCharacter} from './pose-warp-core.js?v=3.4.0';
-import {paintBackdrop} from './scene-backdrop.js?v=3.4.0';
-import {createPoseRenderer} from './unified-renderer.js?v=3.4.0';
+import {clamp,pointerPose} from './sequence-core.js?v=3.5.0';
+import {selectWarpPose,fitCharacter} from './pose-warp-core.js?v=3.5.0';
+import {paintBackdrop} from './scene-backdrop.js?v=3.5.0';
+import {createPoseRenderer} from './unified-renderer.js?v=3.5.0';
+import {qualityWidth} from './quality-profile.js?v=3.5.0';
 
 // A complete native head and neck resolve into the same opaque scene.
 // No temporal accumulation, motion-dependent quality, or late detail swap.
 export async function createJolly(stage,{onProgress=()=>{},reducedMotion=false}={}){
-  const response=await fetch('./assets/sequence-film/manifest.json?v=3.4.0');
+  const response=await fetch('./assets/sequence-film/manifest.json?v=3.5.0');
   if(!response.ok)throw new Error('Jolly 的动作画面暂时无法加载。');
   const manifest=await response.json(),atlas=manifest.warpAtlas,grid=manifest.grid;
   if(!atlas)throw new Error('动作资源正在更新，请刷新页面再试一次。');
-  const base=new URL('./',response.url),narrow=matchMedia('(max-width:700px)').matches;
-  const constrained=navigator.deviceMemory&&navigator.deviceMemory<=4;
+  const base=new URL('./',response.url);
+
   const canvas=document.createElement('canvas');canvas.setAttribute('aria-hidden','true');stage.append(canvas);
   const renderer=createPoseRenderer(canvas);document.body.classList.add('unified-scene');
   const state={ready:false,paused:reducedMotion,reducedMotion,yaw:0,pitch:0,targetYaw:0,targetPitch:0,pointerActive:false,quality:'auto',activeQuality:'native',frames:0,poseChanges:0};
@@ -19,8 +20,8 @@ export async function createJolly(stage,{onProgress=()=>{},reducedMotion=false}=
   let bank=null,flows=[],flowBytes=0,controller=new AbortController(),generation=0,pending=0;
   let explore=false,zoom=1,drawn=[],lastDraw=0,displayedKey='',rect={x:0,y:0,w:0,h:0};
   let costs=[],intervals=[],errors=0,metricStart=performance.now(),metricFrames=0;
-  const profile=value=>value==='low'?480:value==='balanced'?600:value==='high'?720:constrained?480:narrow?600:720;
-  const url=file=>{const u=new URL(file,base);u.searchParams.set('v','3.4.0');return u;};
+  const profile=value=>qualityWidth(value,{width:stage.clientWidth,pixelRatio:devicePixelRatio||1,memory:navigator.deviceMemory||8,maxTextureSize:renderer.maxTextureSize});
+  const url=file=>{const u=new URL(file,base);u.searchParams.set('v','3.5.0');return u;};
   async function loadItems(files,size,signal,progress=false){
     const items=new Array(files.length);let next=0,done=0;
     async function worker(){
@@ -41,7 +42,8 @@ export async function createJolly(stage,{onProgress=()=>{},reducedMotion=false}=
     return items;
   }
   async function loadBank(size,signal,progress=false){
-    const items=await loadItems(atlas.images,size,signal,progress);
+    const files=atlas.colorTiers?.[size]?.images||atlas.images;
+    const items=await loadItems(files,size,signal,progress);
     return {width:size,height:Math.round(size/manifest.aspect),items,bytes:items.reduce((n,item)=>n+item.width*item.height*4,0),close(){items.forEach(item=>renderer.release(item));}};
   }
   function layout(){
@@ -100,6 +102,6 @@ export async function createJolly(stage,{onProgress=()=>{},reducedMotion=false}=
     nudge(x,y){if(state.paused)return;state.targetYaw=clamp(state.targetYaw+x*180/Math.PI,grid.yaw[0],grid.yaw.at(-1));state.targetPitch=clamp(state.targetPitch+y*180/Math.PI,grid.pitch[0],grid.pitch.at(-1));},
     resetMetrics(){intervals=[];costs=[];metricStart=performance.now();metricFrames=state.frames;lastDraw=0;},
     inspectMaterials:()=>({source:'Blender Cycles rendered pixels',sourceSHA256:manifest.sourceSHA256}),inspectGeometry:()=>({renderer:renderer.type,runtimeTriangles:renderer.warping?2:0}),inspectGroom:()=>({fullDensityHair:manifest.fullDensityHair,sourceSHA256:manifest.sourceSHA256}),
-    diagnostics(){const sorted=[...intervals].sort((a,b)=>a-b),seconds=(performance.now()-metricStart)/1000;return {...state,renderer:renderer.type,playerVersion:'3.4.0',assetVersion:manifest.version,sourceSHA256:manifest.sourceSHA256,frameCount:95,nativeFrames:95,interpolatedFrames:0,motionReady:!!bank,motionPoseCount:95,motionWidth:bank?.width,sourceLayers:1,crossfade:false,sceneLayers:1,opaque:renderer.opaque,stableBody:true,neckBlend:false,continuousPose:true,stationaryBodyStart:atlas.stationaryBodyStart,filter:'Catmull-Rom',warping:renderer.warping,yawDegrees:state.yaw,pitchDegrees:state.pitch,drawnFrames:drawn,frameSampleCount:intervals.length,measuredFPS:seconds?(state.frames-metricFrames)/seconds:null,p95FrameMs:sorted[Math.floor(sorted.length*.95)]||null,meanDrawMs:costs.reduce((a,b)=>a+b,0)/Math.max(1,costs.length),cacheMiB:((bank?.bytes||0)+flowBytes+renderer.backdropBytes)/1048576,cacheCount:(bank?.items.length||0)+flows.flat().length,pending,failed:errors,missingFrames:0,fallbackDraws:0,drawCalls:1,triangles:renderer.warping?2:0,canvas:[canvas.width,canvas.height],pixelRatio:dpr,rect,modelBounds:atlas.modelBounds,explore,view:{zoom},lastDraw};}
+    diagnostics(){const sorted=[...intervals].sort((a,b)=>a-b),seconds=(performance.now()-metricStart)/1000;return {...state,renderer:renderer.type,playerVersion:'3.5.0',assetVersion:manifest.version,renderResolution:manifest.renderResolution,renderSamples:manifest.renderSamples,sourceSHA256:manifest.sourceSHA256,frameCount:95,nativeFrames:95,interpolatedFrames:0,motionReady:!!bank,motionPoseCount:95,motionWidth:bank?.width,sourceLayers:1,crossfade:false,sceneLayers:1,opaque:renderer.opaque,stableBody:true,neckBlend:false,continuousPose:true,stationaryBodyStart:atlas.stationaryBodyStart,filter:'Catmull-Rom',warping:renderer.warping,yawDegrees:state.yaw,pitchDegrees:state.pitch,drawnFrames:drawn,frameSampleCount:intervals.length,measuredFPS:seconds?(state.frames-metricFrames)/seconds:null,p95FrameMs:sorted[Math.floor(sorted.length*.95)]||null,meanDrawMs:costs.reduce((a,b)=>a+b,0)/Math.max(1,costs.length),cacheMiB:((bank?.bytes||0)+flowBytes+renderer.backdropBytes)/1048576,cacheCount:(bank?.items.length||0)+flows.flat().length,pending,failed:errors,missingFrames:0,fallbackDraws:0,drawCalls:1,triangles:renderer.warping?2:0,canvas:[canvas.width,canvas.height],pixelRatio:dpr,rect,modelBounds:atlas.modelBounds,explore,view:{zoom},lastDraw};}
   };
 }

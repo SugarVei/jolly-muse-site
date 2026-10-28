@@ -22,18 +22,21 @@ test('resident poses cover the entire pointer range without sampling blank atlas
     }
   }
 });
-test('both quality banks are complete; existing full-resolution detail frames remain available',async()=>{
-  for(const spec of Object.values(atlas.tiers)){
-    assert.equal(spec.files.length,atlas.grid.pitch.length);
-    for(const name of spec.files)assert.ok((await stat(new URL(name,root))).size>0);
-  }
-  for(const row of atlas.sourceRows)for(const col of atlas.sourceCols){
-    const id=`p${String(row).padStart(2,'0')}_y${String(col).padStart(2,'0')}`;
-    assert.ok((await stat(new URL(`high/${id}.webp`,root))).size>0);
+test('all HD quality banks cover every native pose with locally available assets',async()=>{
+  const current=manifest.warpAtlas;
+  assert.deepEqual(manifest.renderResolution,[1440,1920]);
+  assert.equal(manifest.renderSamples,96);
+  assert.equal(manifest.renderFrameCount,95);
+  assert.deepEqual(Object.keys(current.colorTiers).map(Number),[480,720,1080,1440]);
+  for(const spec of Object.values(current.colorTiers)){
+    assert.equal(spec.images.length,current.grid.pitch.length);
+    assert.equal(spec.width/spec.height,manifest.aspect);
+    for(const name of spec.images)assert.ok((await stat(new URL(name,root))).size>0);
   }
 });
-test('automatic resident bitmap memory stays bounded on phones and desktops',()=>{
+test('resident bitmap budgets remain bounded across all HD quality tiers',()=>{
   const bytes=w=>atlas.grid.pitch.length*atlas.columns*atlas.rows*w*Math.round(w/manifest.aspect)*4;
-  assert.ok(bytes(360)<70*1024*1024);
-  assert.ok(bytes(480)<120*1024*1024);
+  assert.ok(bytes(720)<270*1024*1024);
+  assert.ok(bytes(1080)<600*1024*1024);
+  assert.ok(bytes(1440)<1060*1024*1024);
 });

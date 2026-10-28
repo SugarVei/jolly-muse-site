@@ -4,7 +4,7 @@ export function createPoseRenderer(canvas){
   const gl=canvas.getContext('webgl',{alpha:false,antialias:false,premultipliedAlpha:false,powerPreference:'default'});
   if(!gl){
     const ctx=canvas.getContext('2d',{alpha:false});if(!ctx)throw new Error('当前浏览器无法显示 Jolly。');let backdrop=null;
-    return {type:'Canvas2D opaque scene fallback',warping:false,opaque:true,backdropBytes:0,
+    return {type:'Canvas2D opaque scene fallback',warping:false,opaque:true,backdropBytes:0,maxTextureSize:8192,
       setBackdrop(value){backdrop=value;this.backdropBytes=value.width*value.height*4;},
       upload(bitmap,data=false){if(data){bitmap.close();return null;}return {bitmap,width:bitmap.width,height:bitmap.height};},
       release(item){item?.bitmap?.close();},finishReady(){},dispose(){backdrop=null;},
@@ -72,7 +72,7 @@ export function createPoseRenderer(canvas){
     const item={texture,width:source.width,height:source.height};if(close)source.close();
     if(gl.getError()!==gl.NO_ERROR){gl.deleteTexture(texture);throw new Error('画面资源未能完整上传，请尝试流畅画质。');}return item;
   }
-  return {type:'WebGL unified opaque scene',warping:true,opaque:true,backdropBytes:0,
+  return {type:'WebGL unified opaque scene',warping:true,opaque:true,backdropBytes:0,maxTextureSize:gl.getParameter(gl.MAX_TEXTURE_SIZE),
     setBackdrop(value){const next=upload(value);if(setting)gl.deleteTexture(setting.texture);setting=next;this.backdropBytes=value.width*value.height*4;},
     upload(bitmap){return upload(bitmap,true);},
     release(item){if(item?.texture)gl.deleteTexture(item.texture);},
@@ -84,7 +84,7 @@ export function createPoseRenderer(canvas){
       for(const [unit,item] of [[0,bank.items[pose.row]],[1,flows[pose.row][0]],[2,flows[pose.row][1]],[3,setting]]){gl.activeTexture(gl.TEXTURE0+unit);gl.bindTexture(gl.TEXTURE_2D,item.texture);}
       gl.uniform4f(uniforms.rect,rect.x,rect.y,rect.w,rect.h);gl.uniform2f(uniforms.viewport,width,height);
       gl.uniform2f(uniforms.tile,pose.col%atlas.columns,Math.floor(pose.col/atlas.columns));gl.uniform2f(uniforms.neckFade,...(atlas.warpFade||[.55,.60]));gl.uniform2f(uniforms.pack,atlas.columns,atlas.rows);
-      gl.uniform2f(uniforms.delta,pose.dx,pose.dy);gl.uniform2f(uniforms.nativeSize,atlas.width,atlas.height);gl.uniform2f(uniforms.cellSize,bank.width,bank.height);gl.uniform2f(uniforms.flowSize,atlas.flowWidth,atlas.flowHeight);
+      gl.uniform2f(uniforms.delta,pose.dx,pose.dy);gl.uniform2f(uniforms.nativeSize,...(atlas.flowReferenceSize||[atlas.width,atlas.height]));gl.uniform2f(uniforms.cellSize,bank.width,bank.height);gl.uniform2f(uniforms.flowSize,atlas.flowWidth,atlas.flowHeight);
       gl.drawArrays(gl.TRIANGLES,0,6);
     },
     dispose(){if(setting)gl.deleteTexture(setting.texture);gl.deleteBuffer(vertices);gl.deleteProgram(program);gl.deleteShader(vertex);gl.deleteShader(fragment);}
